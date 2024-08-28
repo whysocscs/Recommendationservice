@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맞춤형 다이어트 식단 추천 결과</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes leafFloat {
+            0%, 100% {
+                transform: translateY(0) rotate(-45deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+        }
+
+        .leaf-top-left {
+            animation: leafFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes leafFloatBottomRight {
+            0%, 100% {
+                transform: translateY(0) rotate(45deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(45deg);
+            }
+        }
+
+        .leaf-bottom-right {
+            animation: leafFloatBottomRight 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-green-50 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-4xl relative overflow-hidden">
+        <div class="leaf-top-left absolute -top-4 -left-4 text-5xl">🍃</div>
+        <div class="leaf-bottom-right absolute -bottom-4 -right-4 text-5xl">🌿</div>
+
+        <h1 class="text-4xl font-bold mb-8 text-center text-green-800">추천 다이어트 식단</h1>
+
+        {% if recommendation %}
+        {% set diets = recommendation.split("Diet ") %}
+        <div class="space-y-6">
+            {% for diet in diets if diet %}
+            <div class="bg-green-100 rounded-lg p-6 shadow-md">
+                <h2 class="text-2xl font-semibold mb-4 text-green-700">Diet {{ loop.index }}</h2>
+                <div class="text-gray-700 space-y-2">
+                    {% for line in diet.split('\n') if line.strip() %}
+                    <p>{{ line }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="text-center text-gray-500 text-lg">추천 식단이 없습니다.</p>
+        {% endif %}
+
+        <div class="mt-8 text-center">
+            <a href="/" class="inline-block py-3 px-6 bg-gradient-to-r from-green-500 to-teal-600 text-white rounded-full hover:from-green-600 hover:to-teal-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105">
+                돌아가기
+            </a>
+        </div>
+    </div>
+</body>
+</html>
