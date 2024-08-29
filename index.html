@@ -133,15 +133,6 @@
         });
 
         submitBtn.addEventListener('click', function () {
-            if (!selectedGoal) {
-                alert('목표를 선택해주세요.');
-                return;
-            }
-            const bmi = calculateBMI(heightInput.value, weightInput.value);
-            alert(`입력하신 정보:\n나이: ${ageInput.value}세\n키: ${heightInput.value}cm\n몸무게: ${weightInput.value}kg\nBMI: ${bmi.toFixed(2)}\n목표: ${selectedGoal}\n\n이 정보를 바탕으로 맞춤형 다이어트 식단을 추천해 드리겠습니다.`);
-        });
-
-        submitBtn.addEventListener('click', function () {
             if (!selectedGoal || !selectedGender) {
                 alert('목표와 성별을 선택해주세요.');
                 return;
