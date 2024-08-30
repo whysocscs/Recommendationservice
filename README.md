@@ -22,6 +22,7 @@ The goal of this project is to create a program that recommends meals tailored t
 - **Front-end**: (Not yet decided)
 
 ## Project Architecture
+![image](https://github.com/user-attachments/assets/b12a4d79-fb1d-4da0-ae42-0d90ece638fe)
 
 ### Page Functions
 
