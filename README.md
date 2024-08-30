@@ -1,59 +1,126 @@
-## Personal Recommendation Diet Meal Service
+# Diet Recommendation App
 
-## 목적
-운동을 시작하는 사람에게 각자의 체형과 취향에 맞게 음식을 추천 할 수 있는 프로그램을 만들자.
+This project is a Flask-based web application that provides personalized diet recommendations based on user inputs such as age, weight, height, gender, activity level, and dietary goals. The app utilizes the FatSecret API to fetch food and recipe data, ensuring that the diet plans are both accurate and diverse.
 
-## 개발 기간
-2024.08.28 ~ 2024.08.30
+## Purpose
 
-인공지능 기반 상명 AI training
+The goal of this project is to create a program that recommends meals tailored to individuals' body types and preferences, especially for those starting a fitness journey.
 
-아이디어 노트 작성
+## Development Timeline
 
-발표 평가
+- **Start Date**: 2024.08.28
+- **End Date**: 2024.08.30
 
-## 개발자소개
+## AI Training by Sangmyung University
 
-유현영 
+- **Idea Note Creation**
+- **Presentation and Evaluation**
 
-김기원
+## Technology Stack
 
-이상호
+- **Ollama**: Python-based AI model for generating diet recommendations.
+- **Front-end**: (Not yet decided)
 
-## 기술 스택
-Ollama(Python)
+## Project Architecture
 
-Front-end(Not yet decided)
+### Page Functions
 
-## 프로젝트 아키텍쳐
+- **[Home Page]**
+  - The UI is designed to collect personal information from users.
+  - Users can immediately check their BMI score upon entering their data.
+  - ![image](https://github.com/user-attachments/assets/1c7815c2-a512-4701-ac96-dace796b88b0)
 
-![image](https://github.com/user-attachments/assets/c15ceca1-7aab-4338-8ab5-cab300bedd9c)
+- **[Results Page]**
+  - Based on the user's personal information, the app recommends an optimized diet plan.
+  - Users can receive alternative recommendations by specifying foods they like or dislike.
+  - ![image](https://github.com/user-attachments/assets/98330f2e-15b2-4a36-bc5d-cf9643cd58dd )
 
-## 페이지별 기능
+## Key Features
 
-## [초기화면]
-+사용자의 인적 정보를 받아들 일 수 있는 ui를 설정하였습니다.
-+그리고 바로 사용자의 bmi수치를 확인 할 수 있도록 수정하였습니다.
-![image](https://github.com/user-attachments/assets/1c7815c2-a512-4701-ac96-dace796b88b0)
+1. **User Information Collection**: Collect personal data such as height, weight, goal, gender, and activity level, which is then input into Ollama AI.
+2. **Diet Search**: Using the collected data, Ollama AI determines the appropriate diet for the user and provides recommendations.
+3. **Diet Re-evaluation**: If the user is not satisfied with the initial diet plan, they can input their preferred or disliked foods to receive a new recommendation.
 
-## [결과 화면]
-+ 사용자의 인적 정보를 바탕으로 사용자에 최적화 된 식단을 추천합니다.
-+ 사용자가 먹기 싫은 음식과 좋아하는 음식을 바탕으로 재추천을 받을 수 있습니다.
+## Future Enhancements
 
-![image](https://github.com/user-attachments/assets/98330f2e-15b2-4a36-bc5d-cf9643cd58dd )
+1. **API Server Improvement**: Currently, the API is set to individual IPs. Future versions will allow multiple users to access the service without needing to configure their IPs by centralizing the API server.
+2. **Alternative AI Models**: Explore other AI APIs to replace Ollama if its responses are slow or include unnecessary information.
+3. **Muscle Mass and Body Fat Percentage**: Incorporate these metrics to provide more accurate diet recommendations.
+4. **BMI Chart Enhancement**: Improve the BMI chart to allow the x-axis to move dynamically based on user input.
 
+## Installation
 
-## 주요 기능
-+ 사용자의 인적 정보 수집
-    + 사용자의 키, 몸무게, 목표, 성별, 활동량을 입력 받아서 Ollama Ai에 입력한다.
-+ 식단 검색
-  + Ollama ai를 활영하여 사용자의 인적 정보 수집을 바탕으로 어떤 식단을 먹어야 하는지 파악 후 사용자에게 전달한다.
-  + 사용자가 식단이 마음에 들지 않을 경우 좋아하는 식품과 싫어하는 식품을 다시 입력 받아 식단을 다시 받을 수 있게 한다.
+### Prerequisites
 
+Before you begin, ensure you have Python installed on your machine. You'll also need an API key from FatSecret.
 
+### Steps
 
-## 개선 목표
-+ Api가 개인의 ip로 설정이 되어있어서 이것을 하나의 api 서버를 통해 다른 사용자들도 ip설정을 하지 않고 사용할 수 있도록 수정
-+ ollama Ai의 답변에 필요없는 내용이 포함되어 있을 때가 있고 ollama Ai의 답변 속도가 느려 다른 ai api를 사용하기
-+ 골격근량과 체지방률을 사용하여 더 정확한 식단을 내놓을 수 있도록 수정
-+ 처음 사이트에서 BMI 표의 x축이 움직이지 않아 표를 수정
+1. **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/ttuurrnn/my-diet-app.git
+    cd my-diet-app
+    ```
+
+2. **Create and activate a virtual environment:**
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
+
+3. **Install the dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Set up your environment variables:**
+
+    Create a `.env` file in the project root and add your FatSecret API credentials:
+
+    ```plaintext
+    CLIENT_ID=your_fatsecret_client_id
+    CLIENT_SECRET=your_fatsecret_client_secret
+    ```
+
+5. **Run the application:**
+
+    ```bash
+    python app.py
+    ```
+
+6. **Access the application:**
+
+    Open your web browser and navigate to `http://localhost:5000`.
+
+## Usage
+
+1. **Input your details**: On the main page, enter your age, weight, height, gender, activity level, and dietary goal (e.g., weight loss, muscle gain).
+2. **Get your diet plan**: Click "맞춤형 다이어트 식단 추천 받기" to generate a customized diet plan.
+3. **Review your plan**: The app will display a diet plan with meals and recipes, along with a breakdown of calories and macronutrients.
+
+## Project Structure
+
+- **`app.py`**: The main Flask application file, containing all the routes and logic.
+- **`templates/index.html`**: The main page where users input their information.
+- **`templates/result.html`**: The results page displaying the recommended diet plan.
+- **`requirements.txt`**: A list of all Python dependencies required to run the app.
+
+## Technologies Used
+
+- **Flask**: A lightweight web framework for Python used to build the application.
+- **FatSecret API**: Used to retrieve food and recipe data for generating diet plans.
+- **Tailwind CSS**: A utility-first CSS framework for styling the user interface.
+- **Chart.js**: Used for visualizing BMI (Body Mass Index) on the front end.
+
+## Future Enhancements
+
+- **Enhanced Recipe Recommendations**: Improve the diversity of recommended recipes by integrating more advanced search criteria.
+- **User Accounts**: Allow users to save their dietary plans and track their progress over time.
+- **Multi-language Support**: Add support for multiple languages to cater to a broader audience.
+
+## Acknowledgements
+
+Special thanks to the FatSecret API team for providing a comprehensive API that made this project possible.
