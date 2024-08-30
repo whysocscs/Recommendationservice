@@ -49,7 +49,8 @@ The goal of this project is to create a program that recommends meals tailored t
 1. **API Server Improvement**: Currently, the API is set to individual IPs. Future versions will allow multiple users to access the service without needing to configure their IPs by centralizing the API server.
 2. **Alternative AI Models**: Explore other AI APIs to replace Ollama if its responses are slow or include unnecessary information.
 3. **Muscle Mass and Body Fat Percentage**: Incorporate these metrics to provide more accurate diet recommendations.
-4. **BMI Chart Enhancement**: Improve the BMI chart to allow the x-axis to move dynamically based on user input.
+4. **Reflect Feedback**: It should be evaluated how satisfied you are with the diet recommended by the user and added so that developers can see and modify it.
+5. **Save Information**: It should be improved so that each user's information can be stored in the session and content such as user information, food he hates, and favorite food can be retrieved next time.
 
 ## Installation
 
