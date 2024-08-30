@@ -1,3 +1,5 @@
+## Personal Recommendation Meal Service
+
 ## 목적
 운동을 시작하는 사람에게 각자의 체형과 취향에 맞게 음식을 추천 할 수 있는 프로그램을 만들자.
 
@@ -25,7 +27,7 @@ Front-end(Not yet decided)
 
 ## 프로젝트 아키텍쳐
 
-
+![image](https://github.com/user-attachments/assets/c15ceca1-7aab-4338-8ab5-cab300bedd9c)
 
 ## 페이지별 기능
 
