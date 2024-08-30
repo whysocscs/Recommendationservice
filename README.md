@@ -1,4 +1,4 @@
-# Diet Recommendation App
+# ![250우리 로고](https://github.com/user-attachments/assets/4790bccc-8dd8-44ee-8f59-38bfbd515b4e) Diet Recommendation App
 
 This project is a Flask-based web application that provides personalized diet recommendations based on user inputs such as age, weight, height, gender, activity level, and dietary goals. The app utilizes the FatSecret API to fetch food and recipe data, ensuring that the diet plans are both accurate and diverse.
 
