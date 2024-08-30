@@ -180,19 +180,96 @@
     
         function updateBMIChart() {
             const bmi = calculateBMI(heightInput.value, weightInput.value);
-            bmiChart.data.datasets[0].data = [18.5, 24.9, 29.9, 35];
-            bmiChart.data.datasets[1] = {
-                label: '당신의 BMI',
-                data: [null, null, null, bmi],
-                backgroundColor: 'rgba(16, 185, 129, 0.2)',
-                borderColor: 'rgba(16, 185, 129, 1)',
-                borderWidth: 2,
-                pointRadius: 5,
-                pointHoverRadius: 7
+        
+            // BMI 범주와 각 범주에 해당하는 x축 위치를 설정합니다.
+            const bmiCategories = [
+                { label: "Underweight", min: 0, max: 18.5 },
+                { label: "Normal", min: 18.5, max: 24.9 },
+                { label: "Overweight", min: 24.9, max: 29.9 },
+                { label: "Obese", min: 29.9, max: 40 }
+            ];
+        
+            // 사용자의 BMI 값을 해당 범주의 x축 위치에 맵핑합니다.
+            let bmiData = [];
+            let xPosition = null;
+        
+            bmiCategories.forEach((category, index) => {
+                if (bmi >= category.min && bmi <= category.max) {
+                    xPosition = index + (bmi - category.min) / (category.max - category.min);
+                    bmiData.push({ x: xPosition, y: bmi });
+                } else if (bmi > 40 && category.label === "Obese") {
+                    // Obese 범주에서 BMI가 40을 초과할 경우
+                    xPosition = index + 0.5;  // Obese 범주에서 약간 오른쪽에 위치
+                    bmiData.push({ x: xPosition, y: bmi });
+                } else {
+                    bmiData.push({ x: index + 0.5, y: null });  // 나머지 범주는 점 표시 안함
+                }
+            });
+        
+            bmiChart.data = {
+                datasets: [
+                    {
+                        label: 'BMI Categories',
+                        data: bmiCategories.map((category, index) => ({
+                            x: index + 0.5,
+                            y: category.max
+                        })),
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#FF6384'],
+                        borderWidth: 1,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        showLine: false,
+                        type: 'scatter'
+                    },
+                    {
+                        label: 'Your BMI',
+                        data: bmiData,
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        borderWidth: 2,
+                        pointRadius: 10,
+                        pointHoverRadius: 15,
+                        showLine: false,
+                        type: 'scatter'
+                    }
+                ]
             };
+        
+            bmiChart.options = {
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom',
+                        title: {
+                            display: true,
+                            text: 'BMI Category'
+                        },
+                        min: 0,
+                        max: bmiCategories.length,
+                        ticks: {
+                            stepSize: 1,
+                            callback: function(value, index) {
+                                return bmiCategories[index] ? bmiCategories[index].label : '';
+                            }
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'BMI'
+                        },
+                        min: 0,
+                        max: 40
+                    }
+                }
+            };
+        
             bmiChart.update();
         }
-    
+        
         updateBMIChart();
-    </script>
+        
+        
+        
+            </script>
     
