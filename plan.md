@@ -30,8 +30,8 @@
         - API generate key :
         
         ```python
-        Client ID: af50165545af4de29b997291cdd2033d
-        Client Secret: b8936b6f889846d0b68f79a9d424fda9
+        Client ID: 
+        Client Secret: 
         ```
         
     - 데이터 시트 탐색
