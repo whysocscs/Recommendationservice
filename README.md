@@ -1,4 +1,4 @@
-## Personal Recommendation Meal Service
+## Personal Recommendation Diet Meal Service
 
 ## 목적
 운동을 시작하는 사람에게 각자의 체형과 취향에 맞게 음식을 추천 할 수 있는 프로그램을 만들자.
