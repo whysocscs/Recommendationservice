@@ -29,13 +29,13 @@ The goal of this project is to create a program that recommends meals tailored t
 - **[Home Page]**
   - The UI is designed to collect personal information from users.
   - Users can immediately check their BMI score upon entering their data.
-  - <img width="692" alt="image" src="https://github.com/user-attachments/assets/34542f7b-3095-4f88-a5a5-223f6e8148b1">
+  <img width="692" alt="image" src="https://github.com/user-attachments/assets/34542f7b-3095-4f88-a5a5-223f6e8148b1">
 
 
 - **[Results Page]**
   - Based on the user's personal information, the app recommends an optimized diet plan.
   - Users can receive alternative recommendations by specifying foods they like or dislike.
-  - ![image](https://github.com/user-attachments/assets/98330f2e-15b2-4a36-bc5d-cf9643cd58dd )
+  ![image](https://github.com/user-attachments/assets/98330f2e-15b2-4a36-bc5d-cf9643cd58dd )
 
 ## Key Features
 
